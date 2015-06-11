@@ -1,7 +1,7 @@
 'use strict';
 
 function collect_max_number(collection) {
-    var _= require('/home/wlt/loadsh/myloadsh.js');
-    return _.max(collection);
+    var _ = require("../../lodash.js");
+    return _(collection).max(collection).value();
 }
 module.exports = collect_max_number;
