@@ -1,9 +1,12 @@
 'use strict';
 function find_first_even(collection) {
-    var _= require('/home/wlt/loadsh/myloadsh.js');
-    return _.first(collection,function(n){
-        return n%2==0;
-    });
+    var _= require('../../lodash.js');
+    var result= _(collection).filter(
+        function(n,i){
+            return n%2 === 0;
+    }).value();
+    console.log(result);
+    return _(result).first().value();
 }
 
 module.exports = find_first_even;
