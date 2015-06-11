@@ -1,9 +1,10 @@
 'use strict';
 
  function map_to_three_multiples(collection){
-     var _= require('/home/wlt/loadsh/myloadsh.js');
-     return _.map(collection,function(n){
-         return n*3;
-     });
+    var _= require("../../lodash");
+    return  _(collection).map(function(n){
+        return n*3;
+    }).value();
+
 }
 module.exports = map_to_three_multiples;
