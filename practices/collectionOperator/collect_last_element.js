@@ -1,9 +1,9 @@
 'use strict';
 
 function collect_last_element(collection) {
-    var _= require('/home/wlt/loadsh/myloadsh.js');
-    return _.last(collection,function(n){
-        return n;
-    })
+    var _= require('../../lodash.js');
+    return _(collection).reduce(function(a,b){
+        return b;
+    }).value();
 }
 module.exports = collect_last_element;
