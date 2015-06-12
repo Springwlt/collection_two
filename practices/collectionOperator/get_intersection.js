@@ -1,12 +1,11 @@
 'use strict';
 
 function get_intersection(collection_a, collection_b) {
-    var _= require("/home/wlt/loadsh/myloadsh.js");
+    var _= require("../../lodash.js");
     var result = [];
-
-     _.foreach(collection_b,function(n){
-        _.foreach(collection_a,function(a){
-            if(n === a) {
+    _(collection_b).each(function(n){
+        _(collection_a).each(function(b){
+            if(n === b) {
                 result.push(n);
             }
         });
