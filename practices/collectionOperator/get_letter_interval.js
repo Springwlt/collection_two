@@ -1,11 +1,11 @@
 'use strict';
 
 function get_letter_interval(number_a, number_b) {
-    var _=require("/home/wlt/loadsh/myloadsh.js");
-    
-    var result = _.range(number_a,number_b);
-    return  _.map(result,function(n){
-         return String.fromCharCode(n+96);
-     });
+    var _=require("../../lodash.js");
+
+    var result =_().range(number_a,number_b).value();
+    return  _(result).map(function(n){
+        return String.fromCharCode(n+96);
+    }).value();
 }
 module.exports = get_letter_interval;
