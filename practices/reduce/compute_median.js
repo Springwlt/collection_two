@@ -1,10 +1,14 @@
 'use strict';
 
 function compute_median(collection) {
-    var _=require("/home/wlt/loadsh/myloadsh.js");
-    return _.median(_.sort(collection,function(a,b){
+    var _ = require("../../lodash.js");
+
+    var result = _(collection).sort(function(a,b){
         return a > b ;
-    }));
+    }).value();
+
+    return _(result).median();
+    
 }
 
 module.exports = compute_median;
