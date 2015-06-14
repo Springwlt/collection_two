@@ -5,7 +5,8 @@ function get_letter_interval(number_a, number_b) {
 
     var result =_().range(number_a,number_b).value();
     return  _(result).map(function(n){
-        return String.fromCharCode(n+96);
+        return _().letter(n);
     }).value();
+    
 }
 module.exports = get_letter_interval;
