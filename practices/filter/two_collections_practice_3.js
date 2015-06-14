@@ -1,17 +1,19 @@
 'use strict';
 
 function choose_divisible_integer(collection_a, collection_b) {
-    var _= require("/home/wlt/loadsh/myloadsh.js");
+    var _ = require("../../lodash.js");
     var result = [];
 
-     _.foreach(collection_a,function(n){
-        _.foreach(collection_b,function(a){
+     _(collection_a).each(function(n){
+        _(collection_b).each(function(a){
             if(n%a === 0) {
                 result.push(n);
             }
         });
     });
+
     return result;
+    
 }
 
 module.exports = choose_divisible_integer;
