@@ -1,9 +1,12 @@
 'use strict';
 
 function compute_average(collection) {
-    var _= require('/home/wlt/loadsh/myloadsh.js');
+    var _= require('../../lodash.js');
+
+    var  sum = _(collection).sum().value();
+
+    return sum/collection.length;
     
-    return _.sum(collection)/collection.length;
 }
 
 module.exports = compute_average;
