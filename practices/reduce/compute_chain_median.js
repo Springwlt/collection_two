@@ -1,11 +1,12 @@
 'use strict';
 
 function compute_chain_median(collection) {
-  var _ = require("/home/wlt/loadsh/myloadsh.js");
+  var _ = require("../../lodash.js");
     var array = [];
     var num = "";
 
     for(var i = 0; i < collection.length; i++) {
+        
         if(parseInt(collection[i]) === parseInt(collection[i])) {
             num += collection[i];
         }else {
@@ -18,10 +19,12 @@ function compute_chain_median(collection) {
             array[array.length] = parseInt(num);
         }
     }
-    _.sort(array,function(a,b){
-      return a < b;
-    });
-    return _.median(array);
+
+    var result = _(array).sort(function(a,b){
+        return a < b;
+    }).value();
+
+    return _(result).median();
 }
 
 module.exports = compute_chain_median;
