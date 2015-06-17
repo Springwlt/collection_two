@@ -1,12 +1,17 @@
 'use strict';
 
 function average_uneven(collection) {
-    var _=require("/home/wlt/loadsh/myloadsh.js");
+    var _=require("../../../lodash.js");
     var count = 0;
-    var odd_result = _.filter(collection,function(n,i){
+
+    var odd_result = _(collection).filter(function(n,i){
         return n%2 != 0;
-    });
-    return _.sum(odd_result)/odd_result.length;
+    }).value();
+
+    var sum = _(odd_result).sum().value();
+    
+    return sum/odd_result.length;
+
 }
 
 module.exports = average_uneven;
