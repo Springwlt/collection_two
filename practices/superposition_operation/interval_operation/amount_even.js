@@ -1,11 +1,14 @@
 'use strict';
 
 function amount_even(collection) {
-    var _=require("/home/wlt/loadsh/myloadsh.js");
-    var even_result = _.filter(collection,function(n){
+    var _=require("../../../lodash.js");
+
+    var even_result = _(collection).filter(function(n){
         return n%2 === 0;
-    });
-    return _.sum(even_result);
+    }).value();
+
+    return _(even_result).sum().value();
+    
 }
 
 module.exports = amount_even;
