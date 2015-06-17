@@ -1,41 +1,45 @@
+function each(array,item) {
+    for(var i = 0 ; i < array.length; i++) {
+        item(array[i],i);
+    }
+}
 function _(collection) {
     if(!(this instanceof _)) {
         return new _(collection);
     }
     this.collection = collection;
 }
-  _.prototype = {
+
+_.each = each;
+
+_.prototype = {
     each:function(fn) {
-      for(var i = 0;i< this.collection.length;i++) {
-        fn(this.collection[i],i)
-      }
+        each(this.collection, fn);
     },
-    map:function(fn) {
-      var result = [];
-      this.each(function(n, i){
-        result.push(fn(n,i))
-      });
-      this.collection = result;
-      return this;
+    value:function(){
+        return this.collection;
     },
-    // filter:function(fn,operate){
-    //   var result = [];
-    //   this.each(function(n,i){
-    //     if(operate(n,i)){
-    //       result.push(n);
-    //     };
-    //   });
-    //   this.collection = result;
-    //   return this;
-    // }
-  }
-var a = [1, 2, 3];
-// var b=_(a).filter(function(n){
-//   return n+1;
-// },function(a, b){
-//   return a % 2 === 0;
-// });
-var b = _(a).map(function(n){
-  return n*n;
-});
+    sort:function(operate) {
+        var result = [];
+        _.each(this.collection,function(n,i){
+            result.push(n);
+        });
+        _.each(result,function(n,i){
+            _.each(result,function(m,j){
+                if(i > j && operate(result[i],result[j])) {
+                    var temp = result[i];
+                    result[i] = result[j];
+                    result[j] = temp;
+                }
+            });
+        });
+        this.collection = result;
+        return this;
+    },
+}
+
+var a = [1, 5 ,3, 3, 2 ,1];
+var b = _(a).sort(function(a,b){
+    return a > b;
+}).value();
 console.log(b);
