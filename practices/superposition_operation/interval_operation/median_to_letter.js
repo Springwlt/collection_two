@@ -1,11 +1,12 @@
 'use strict';
 
 function median_to_letter(collection) {
-    var _=require("/home/wlt/loadsh/myloadsh.js");
-    var result = 0;
-    var  median=Math.ceil(_.median(collection));
+    var _=require("../../../lodash.js");
 
-    return _.letter(median);
+    var result = Math.ceil(_(collection).median());
+
+    return _().letter(result);
+    
 }
 
 module.exports = median_to_letter;
