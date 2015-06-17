@@ -1,13 +1,14 @@
 'use strict';
 var calculate_average = function(collection){
-	var _= require("/home/wlt/loadsh/myloadsh.js");
+	var _= require("../../../../lodash.js");
 
-	var even_number = _.filter(collection,function(n,i){
+	var even_number = _(collection).filter(function(n,i){
 		return  i%2 != 0;
-	});
+	}).value();
 
-	var result = _.sum(even_number)/even_number.length;
-	
+	var result = _(even_number).sum().value()/even_number.length;
+
 	return result;
+	
 };
 module.exports = calculate_average;
