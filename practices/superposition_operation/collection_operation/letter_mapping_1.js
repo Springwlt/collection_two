@@ -1,16 +1,18 @@
 'use strict';
 
 function even_to_letter(collection) {
-    var _= require("/home/wlt/loadsh/myloadsh.js");
-    
-    var result = _.filter(collection,function(n){
+    var _= require("../../../lodash.js");
+
+    var even_result = _(collection).filter(function(n){
         if(n%2 === 0){
             return n;
         }
-    });
-    return _.map(result,function(n){
-            return String.fromCharCode(n+96);
-    });
+    }).value();
+
+    return _(even_result).map(function(n){
+        return _().letter(n);
+    }).value();
+    
 }
 
 module.exports = even_to_letter;
