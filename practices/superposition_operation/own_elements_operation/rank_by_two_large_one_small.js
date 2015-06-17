@@ -1,24 +1,28 @@
 'use strict';
 function rank_by_two_large_one_small(collection){
-    var _=require("/home/wlt/loadsh/myloadsh.js");
+    var _=require("../../../lodash.js");
     var result = [];
-    _.sort(collection,function(a,b){
-        return a > b;
-    })
-    for(var i = 0;i < collection.length-2; i +=3) {
 
+    var array = _(collection).sort(function(a,b){
+        return a < b;
+    }).value();
+
+    for(var i = 0;i < array.length-2; i +=3) {
         var temp = 0;
-        temp = collection[i];
-        collection[i] = collection[i+2];
-        collection[i+2] = temp;
+        temp = array[i];
+        array[i] = array[i+2];
+        array[i+2] = temp;
     }
-    for(var i = 0;i < collection.length-2; i +=3) {
+
+    for(var i = 0;i < array.length-2; i +=3) {
         var temp = 0;
-        temp = collection[i];
-        collection[i] = collection[i+1];
-        collection[i+1] = temp;
+        temp = array[i];
+        array[i] = array[i+1];
+        array[i+1] = temp;
     }
-    return collection;
+
+    return array;
+    
 }
 
 module.exports = rank_by_two_large_one_small;
