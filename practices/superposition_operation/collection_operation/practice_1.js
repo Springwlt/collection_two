@@ -1,11 +1,14 @@
 'use strict';
 
 function hybrid_operation(collection) {
-    var _= require("/home/wlt/loadsh/myloadsh.js")
-    var result = _.map(collection,function(n){
+    var _= require("../../../lodash.js");
+
+    var result = _(collection).map(function(n){
         return n*3+2;
-    });
-    return _.sum(result);
+    }).value();
+
+    return _(result).sum().value();
+    
 }
 
 module.exports = hybrid_operation;
